@@ -4,7 +4,7 @@ import time
 
 load_dotenv()
 
-REQ_QUEUE_URL = "https://sqs.us-east-1.amazonaws.com/820242917421/1230434441-req-queue"
+REQ_QUEUE_URL = ""
 MAX_INSTANCES = 14
 
 ec2 = boto3.client("ec2", region_name='us-east-1')
@@ -39,7 +39,7 @@ def get_running_instances():
 def launch_new_instance():
    instance_name = "app-tier-instance-" + str(get_running_instances()+1)
    instance = ec2.run_instances(
-        ImageId="ami-06a722a970b69b580",
+        ImageId="ami-id",
         InstanceType="t2.micro",
         MinCount=1,
         MaxCount=1,
