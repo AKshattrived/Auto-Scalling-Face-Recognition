@@ -5,10 +5,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-S3_INPUT_BUCKET = "1230434441-in-bucket"
-S3_OUTPUT_BUCKET = "1230434441-out-bucket"
-REQ_QUEUE_URL = "https://sqs.us-east-1.amazonaws.com/820242917421/1230434441-req-queue"
-RESP_QUEUE_URL = "https://sqs.us-east-1.amazonaws.com/820242917421/1230434441-resp-queue"
+S3_INPUT_BUCKET = "in-bucket"
+S3_OUTPUT_BUCKET = "out-bucket"
+REQ_QUEUE_URL = ""
+RESP_QUEUE_URL = ""
 
 s3 = boto3.client("s3", region_name="us-east-1")
 sqs = boto3.client("sqs", region_name="us-east-1")
