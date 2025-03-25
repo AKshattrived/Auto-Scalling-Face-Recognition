@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 import os
 
 load_dotenv()
-REQ_QUEUE_URL = 'https://sqs.us-east-1.amazonaws.com/820242917421/1230434441-req-queue'
-RESP_QUEUE_URL = 'https://sqs.us-east-1.amazonaws.com/820242917421/1230434441-resp-queue'
+REQ_QUEUE_URL = ''
+RESP_QUEUE_URL = ''
 
 app = Flask(__name__)
 
@@ -26,7 +26,7 @@ def get_number_of_messages():
 def process_image():
 	file = request.files['inputFile']
 	filename = file.filename.split(".")[0]
-	s3.upload_fileobj(file,"1230434441-in-bucket" , filename)
+	s3.upload_fileobj(file,"in-bucket" , filename)
 
 	#request sqs
 	sqs.send_message(QueueUrl= REQ_QUEUE_URL, MessageBody= filename)
